@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createStore} from 'redux';
-import cartReducer from './reducers/cartReducer';
+import {cartReducer} from './reducers/cartReducer';
 import {Provider} from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 

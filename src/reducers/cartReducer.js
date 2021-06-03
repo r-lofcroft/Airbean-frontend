@@ -1,12 +1,22 @@
-const initState = {
-  items:  [],
-  addedItems:[],
-  total: 0
-
+const initialState = {
+  cart: {},
+  coffee: []
 }
-const cartReducer= (state = initState,action)=>{
-    
-  return state;
 
-}
+export const cartReducer = (state = initialState, action) => {
+  switch(action.type) {
+    case 'SET_CART':
+      return {
+        ...state,
+        cart: action.payload
+      }
+    case 'ADD_COFFEE':
+      return {
+        ...state,
+        coffee: action.payload
+      }
+    default:
+      return state
+  }
+} 
 export default cartReducer;
