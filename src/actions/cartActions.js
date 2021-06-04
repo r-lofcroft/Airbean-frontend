@@ -1,9 +1,10 @@
-const addToCart = (count) =>{
+const addToCart = (value) =>{
   return {
     type: 'INCREMENT',
-    payload: count
+    payload: value
   }
 };
+
 
 
 export {addToCart} ;

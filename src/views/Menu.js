@@ -12,7 +12,8 @@ const Menu = props => {
   
   function addItemToCart(value) {
     console.log(value);
-    // dispatch(addToCart(1));
+    dispatch(addToCart(value));
+    
   };
 
 
@@ -51,7 +52,7 @@ const Menu = props => {
             </tr>          
               {menu.map((titleItem, index)=>(
                 <tr key={index}>
-                  <td><button onClick={addItemToCart(titleItem.id)} key={titleItem.id}>+</button></td>
+                  <td><button onClick={()=>addItemToCart(titleItem)} key={titleItem.id}>+</button></td>
                   <td>{titleItem.title}</td>
                   <td>{titleItem.desc}</td>
                   <td>{titleItem.price}</td>

@@ -1,9 +1,14 @@
-const intiialState = 0
-    
-  const cartReducer = (state = intiialState, action) => {
+const initialState = {
+  cartArr:[]
+}
+
+  const cartReducer = (state = initialState, action) => {
     switch(action.type){
       case 'INCREMENT':
-        return state + action.payload
+        return { 
+          ...state,
+          cartArr:[ ...state.cartArr, action.payload]
+        }
       default:
         return state
     }
