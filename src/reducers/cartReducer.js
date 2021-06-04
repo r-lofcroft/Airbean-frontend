@@ -1,12 +1,17 @@
-const initState = {
-  items:  [],
-  addedItems:[],
-  total: 0
-
-}
-const cartReducer= (state = initState,action)=>{
+const intiialState = 0
     
-  return state;
+  const cartReducer = (state = intiialState, action) => {
+    switch(action.type){
+      case 'INCREMENT':
+        return state + action.payload
+      default:
+        return state
+    }
+  }
 
-}
+
 export default cartReducer;
+
+
+
+

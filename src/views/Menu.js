@@ -1,8 +1,20 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import {addToCart} from '../actions/cartActions';
 
 const Menu = props => {
+  
   const [menu, setMenu] = useState();
   const [menuLoaded, setMenuLoaded] = useState(false);
+  const dispatch = useDispatch();
+  
+  
+  function addItemToCart(value) {
+    console.log(value);
+    // dispatch(addToCart(1));
+  };
+
 
   
   const fetchMenu = async () => {
@@ -39,7 +51,7 @@ const Menu = props => {
             </tr>          
               {menu.map((titleItem, index)=>(
                 <tr key={index}>
-                  <td><button key={titleItem.id}>+</button></td>
+                  <td><button onClick={addItemToCart(titleItem.id)} key={titleItem.id}>+</button></td>
                   <td>{titleItem.title}</td>
                   <td>{titleItem.desc}</td>
                   <td>{titleItem.price}</td>
@@ -48,7 +60,7 @@ const Menu = props => {
           </tbody>
         </table>
       ) : (
-        <p>No menu found, please try again</p>
+        <p>The menu was not available, please try again later.</p>
       )}
     </div>
   );
