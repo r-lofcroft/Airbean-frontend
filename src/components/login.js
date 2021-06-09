@@ -1,33 +1,37 @@
-import React, { Component } from "react";
+import {useState} from 'react';
 
-export default class Login extends Component {
-    render() {
-        return (
-            <form>
-                <h3>Sign In</h3>
+function Login(){
+    const [email, setEmail] = useState('')
+    const [pwd, setPwd] = useState('')
 
-                <div>
-                    <label>Email address</label>
-                    <input type="email" placeholder="Enter email" />
-                </div>
+    const handleEmailChange = event=>{
+        setEmail(event.target.value);
+     };
+     const handlePwdChange = event=>{
+        setPwd(event.target.value);
+     };
+     const handleSubmit = event =>{
+         event.preventDefault();
+         console.log(`Your state values:
+                     email: ${email}
+                     pwd: ${pwd}`)
+     };
+    return (
+        <form onSubmit={handleSubmit}>
+            <h3>Sign In</h3>
 
-                <div>
-                    <label>Password</label>
-                    <input type="password" placeholder="Enter password" />
-                </div>
+            <div>
+                <label htmlFor="email">Email address</label>
+                <input type="email" placeholder="Enter email" value={email} onChange={handleEmailChange}/>
+            </div>
 
-                <div>
-                    <div >
-                        <input type="checkbox"  id="customCheck1" />
-                        <label  htmlFor="customCheck1">Remember me</label>
-                    </div>
-                </div>
+            <div>
+                <label  htmlFor="password">Password</label>
+                <input type="password" placeholder="Enter Password" value={pwd} onChange={handlePwdChange} />
+            </div>
 
-                <button type="submit" >Submit</button>
-                <p >
-                    Forgot <a href="#">password?</a>
-                </p>
-            </form>
-        );
-    }
+            <button type="submit" >Submit</button>
+        </form>
+    );
 }
+export default Login;

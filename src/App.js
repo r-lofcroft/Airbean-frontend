@@ -1,6 +1,6 @@
 import './App.css';
 import Menu from './views/Menu';
-// import About from './views/About';
+import About from './views/About';
   
 import { Switch, Route } from 'react-router-dom';
 import ViewCart from './components/viewCart';
@@ -15,10 +15,10 @@ function App() {
       <ViewCart />
         <div>
           <Switch>
-            <Route path="/menu" component={ Menu } exact />
-            {/* <Route path="/about" component={ About } exact /> */}
+            <Route exact path="/menu" component={ Menu }  />
+            <Route exact path="/about" component={ About }  />
             <Route exact path='/' component={Login} />
-            <Route path="/sign-in" component={Login} />
+            <Route path="/login" component={Login} />
             <Route path="/sign-up" component={SignUp} />
           </Switch>
         </div>

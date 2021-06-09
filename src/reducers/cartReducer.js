@@ -7,7 +7,7 @@ const initialState = {
       case 'INCREMENT':
         return { 
           ...state,
-          cartArr:[ ...state.cartArr, action.payload]
+          cartArr:[ ...state.cartArr, action.payload ]
         }
       default:
         return state

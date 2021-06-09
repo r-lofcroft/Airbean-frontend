@@ -41,7 +41,7 @@ const Menu = props => {
     })();
   }, []);
   return (
-    <div>
+    <section className="App">
       {menuLoaded ? (
         <table className="menuTable">
           <tbody>
@@ -63,7 +63,7 @@ const Menu = props => {
       ) : (
         <p>The menu was not available, please try again later.</p>
       )}
-    </div>
+    </section>
   );
 }
 
