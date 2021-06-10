@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import {addToCart} from '../actions/cartActions';
 
-const Menu = props => {
+function Menu() {
   
   const [menu, setMenu] = useState();
   const [menuLoaded, setMenuLoaded] = useState(false);
