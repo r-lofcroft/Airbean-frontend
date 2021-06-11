@@ -14,15 +14,26 @@ function SignUp() {
         setPwd(event.target.value);
     };
     const handleSubmit = event =>{
-        event.preventDefault();
         console.log(`Your state values:
                     name: ${name}
                     email: ${email}
                     pwd: ${pwd}`)
+        fetch('http://localhost:8001/api/account', {
+            body:   JSON.stringify({username: name, email: email, pwd: pwd}),
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            method: 'POST'
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                alert('Congratulations, your account has been made!')
+            })
     };
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id="sign-up-form">
             <h3>Sign Up</h3>
 
             <div>
@@ -41,7 +52,7 @@ function SignUp() {
             </div>
             <div>
                 <div >
-                    <input type="checkbox"  id="customCheck1" />
+                    <input type="checkbox"  id="customCheck1" required/>
                     <label  htmlFor="customCheck1">GDPR Ok?</label>
                 </div>
             </div>

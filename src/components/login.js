@@ -15,6 +15,22 @@ function Login(){
          console.log(`Your state values:
                      email: ${email}
                      pwd: ${pwd}`)
+        fetch('http://localhost:8001/api/login', {
+        body:   JSON.stringify({email: email, pwd: pwd}),
+        headers: {
+            'Content-Type': 'application/json'
+          },
+        method: 'POST'
+        })
+        .then(response => response.json())
+        .then(result => {
+            if(result === "Incorrect parameter"){
+                console.log(result)
+                alert("Incorrect email or password, please try again.")
+            } else{
+            console.log(result)
+            alert('Congratulations, you have logged in!')}
+        })
      };
     return (
         <form onSubmit={handleSubmit}>
