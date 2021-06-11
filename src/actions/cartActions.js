@@ -5,6 +5,11 @@ const addToCart = (value) =>{
   }
 };
 
+const decrement = (value) =>{
+  return {
+    type: 'DECREMENT',
+    payload: value
+  }
+}
 
-
-export {addToCart} ;
+export {decrement, addToCart} ;

@@ -1,4 +1,7 @@
 import {useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {addToCart, decrement} from '../actions/cartActions';
+
 
 function ViewCart(){
   const counter = useSelector((state) => {return state.cartArr});
@@ -6,6 +9,16 @@ function ViewCart(){
     return self.indexOf(value) === index
   }
   const uniqueCounter = counter.filter(unique)
+  const dispatch = useDispatch();
+
+  function addItemToCart(value) {
+    console.log(value);
+    dispatch(addToCart(value));
+  };
+  function removeItemFromCart(value) {
+    console.log(value);
+    dispatch(decrement(value));
+  };
 
   const convert = (counter) => {
     const res = {};
@@ -20,22 +33,47 @@ function ViewCart(){
   };
   console.log(convert(counter));
   let convertedCounter = convert(counter)
+
+  let convertedCounterInt = convertedCounter.map((counter, index)=>{
+    return(
+      <tr key={index}>
+        <td >{counter.count}</td>
+      </tr>
+    )
+  })
+
+  let uniqueCounterProduct = uniqueCounter.map((uniqueTitle, index)=>{
+    return(
+      <tr key={index}>
+                <td><button onClick={()=>removeItemFromCart(uniqueTitle)}>-</button></td>
+
+       <td >{uniqueTitle.title}</td>
+       <td><button onClick={()=>addItemToCart(uniqueTitle)}>+</button></td>
+
+      </tr>
+    )
+  }) 
+
   console.log(uniqueCounter)
   console.log(useSelector(state=>{return (state.cartArr)}))
   return (
-    <div>
-      <h2>Cart: {counter.length}</h2>
-      {uniqueCounter.map((uniqueTitle, index)=>{
-        return(
-          <p key={index}>{uniqueTitle.title}</p>
-          )
-        })} 
-        {convertedCounter.map((counter, index)=>{
-          return(
-            <p key={index}>{counter.count}</p>
-          )
-        })}
-    </div>
+    <section>
+      <header> 
+        Cart: {counter.length}
+      </header>
+      <table>
+        <tbody>
+          <tr>
+            <th>Product</th>
+            <th>Amount</th>
+          </tr>
+          <tr>
+              <td>{uniqueCounterProduct}</td>
+              <td>{convertedCounterInt}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   )}
 
 export default ViewCart;

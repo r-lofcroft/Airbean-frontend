@@ -1,3 +1,4 @@
+
 const initialState = {
   cartArr:[]
 }
@@ -8,6 +9,11 @@ const initialState = {
         return { 
           ...state,
           cartArr:[ ...state.cartArr, action.payload ]
+        }
+      case 'DECREMENT':
+        return {
+          ...state,
+          cartArr: state.cartArr.filter((i=>v=>v.id!==action.payload.id||--i)(1))
         }
       default:
         return state
