@@ -1,9 +1,11 @@
+import React from 'react';
+import { bool } from 'prop-types';
 import {useSelector} from 'react-redux';
 import { useDispatch } from 'react-redux';
-import {addToCart, decrement} from '../actions/cartActions';
+import {addToCart, decrement} from '../../../actions/cartActions'
+import { StyledProducts } from './productsStyled';
 
-
-function ViewCart(){
+const Products = ({ open }) => {
   const counter = useSelector((state) => {return state.cartArr});
   const unique = (value, index, self) => {
     return self.indexOf(value) === index
@@ -89,19 +91,22 @@ function ViewCart(){
   })
   console.log(counterTitles)
   return (
-    <section>
-      <header> 
-        Cart: {counter.length}
-      </header>
-        {uniqueCounterProduct}
-      <div>
-        {convertedCounterInt}
-      </div>
+    <StyledProducts open={open}>
+        <header> 
+          Cart: {counter.length}
+        </header>
+        <div id="cartContainer">
+          <p id="cartProduct">{uniqueCounterProduct}</p>
+          <p id="cartInt">{convertedCounterInt}</p>
+       </div>
         
-      <button onClick={()=>takeMyMoney(counterTitles)}>
-        Take my money!
-      </button>
-    </section>
-  )}
-
-export default ViewCart;
+       <button id="purchase" onClick={()=>takeMyMoney(counterTitles)}>
+          Take my money!
+       </button>
+       </StyledProducts>
+  )
+};
+Products.propTypes = {
+  open: bool.isRequired,
+}
+export default Products;

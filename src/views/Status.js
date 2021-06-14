@@ -1,4 +1,4 @@
-function Profile() {
+function Status() {
 
   return (
     <section className="App">
@@ -7,4 +7,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Status;

@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import {addToCart} from '../actions/cartActions';
-import ViewCart from './viewCart';
+import ViewCart from './Checkout/Cart/viewCart';
+import Products from './Checkout/Products/products';
 
 
 function Menu() {
-  
+  const [open, setOpen] = useState(false);
+
   const [menu, setMenu] = useState();
   const [menuLoaded, setMenuLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -44,8 +46,9 @@ function Menu() {
   }, []);
   return (
     <section className="App">
-      <header>
-        <ViewCart className="Cart" />
+      <header className="header">
+        <ViewCart open={open} setOpen={setOpen}/>
+        <Products open={open} setOpen={setOpen}/>
       </header>
       <h1>Meny</h1>
       {menuLoaded ? (

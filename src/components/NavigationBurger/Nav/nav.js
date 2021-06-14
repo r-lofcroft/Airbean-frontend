@@ -18,7 +18,7 @@ const Nav = ({ open }) => {
         <span aria-label="profil"></span>
         Min Profil
         </a>
-      <a href="/orderstatus">
+      <a href="/status">
         <span aria-label="orderstatus"></span>
         Orderstatus
         </a>
