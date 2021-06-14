@@ -37,18 +37,19 @@ const Products = ({ open }) => {
       myobj[keys[index]]=obj;
       return myobj
     });
-    console.log(output) 
-    // fetch('http://localhost:8001/api/order', {
-    //   body: JSON.stringify(output),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   method: 'POST'
-    // })
-    // .then(response => response.json())
-    // .then(result => {
-    //   console.log(result)
-    // })
+    const obj = Object.assign({}, output);
+    console.log(JSON.stringify(obj)) 
+    fetch('http://localhost:8001/api/order', {
+      body: JSON.stringify(obj),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST'
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log(result)
+    })
     
   };
 
