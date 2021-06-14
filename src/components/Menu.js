@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import {addToCart} from '../actions/cartActions';
+import ViewCart from './viewCart';
+
 
 function Menu() {
   
@@ -42,14 +44,13 @@ function Menu() {
   }, []);
   return (
     <section className="App">
+      <header>
+        <ViewCart className="Cart" />
+      </header>
+      <h1>Meny</h1>
       {menuLoaded ? (
         <table className="menuTable">
-          <tbody>
-            <tr>
-              <th>Product</th>
-              <th>Description</th>
-              <th>Price</th>
-            </tr>          
+          <tbody>     
               {menu.map((titleItem, index)=>(
                 <tr key={index}>
                   <td><button onClick={()=>addItemToCart(titleItem)} key={titleItem.id}>+</button></td>

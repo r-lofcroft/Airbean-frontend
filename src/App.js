@@ -1,27 +1,36 @@
 import './App.css';
-import Menu from './views/Menu';
-import About from './views/About';
-  
+import {useState} from 'react'
+import About from './views/About'; 
 import { Switch, Route } from 'react-router-dom';
-import ViewCart from './components/viewCart';
 import Login from "./components/login";
 import SignUp from "./components/signup";
+import Menu from "./components/Menu"
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './global';
+import { theme } from './theme';
+import { Burger, Nav } from './components';
 
 
 function App() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <section className="App">
-      <ViewCart />
-        <div>
+    <section >
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <header>
+          <Burger open={open} setOpen={setOpen} />
+          <Nav open={open} setOpen={setOpen} />
+        </header>
+        <div className="App">
           <Switch>
-            <Route exact path="/menu" component={ Menu }  />
+            <Route exact path="/" component={SignUp} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/about" component={ About }  />
-            <Route exact path='/' component={Login} />
-            <Route path="/login" component={Login} />
-            <Route path="/sign-up" component={SignUp} />
+            <Route exact path="/menu" component={ Menu }  />
           </Switch>
         </div>
+        </ThemeProvider>
     </section>
   );
 }

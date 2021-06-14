@@ -33,35 +33,40 @@ function SignUp() {
     };
     
     return (
-        <form onSubmit={handleSubmit} id="sign-up-form">
-            <h3>Sign Up</h3>
-
+        <section className="form-container">
             <div>
-                <label htmlFor="name">Full Name</label>
-                <input type="text" placeholder="Full Name" value={name} onChange={handleNameChange} />
+                <h1>Välkommen till AirBean-familjen!</h1>
+                <p>Genom att skapa ett konto nedan kan du spara och se din orderhistorik.</p>
             </div>
+            <form onSubmit={handleSubmit} id="sign-up-form">
 
-            <div>
-                <label htmlFor="email">Email address</label>
-                <input type="email" placeholder="Enter email" value={email} onChange={handleEmailChange}/>
-            </div>
-
-            <div>
-                <label  htmlFor="password">Password</label>
-                <input type="password" placeholder="Enter Password" value={pwd} onChange={handlePwdChange} />
-            </div>
-            <div>
-                <div >
-                    <input type="checkbox"  id="customCheck1" required/>
-                    <label  htmlFor="customCheck1">GDPR Ok?</label>
+                <div>
+                    <label htmlFor="name">Namn</label>
+                    <input type="text" placeholder="Förnamn Efternamn" value={name} onChange={handleNameChange} />
                 </div>
-            </div>
 
-            <button type="submit" >Sign Up</button>
-            <p>
-                Already registered <a href="/login">sign in?</a>
-            </p>
-        </form>
+                <div>
+                    <label htmlFor="email">Epost</label>
+                    <input type="email" placeholder="Epost" value={email} onChange={handleEmailChange}/>
+                </div>
+
+                <div>
+                    <label  htmlFor="password">Lösenord</label>
+                    <input type="password" placeholder="Lösenord" value={pwd} onChange={handlePwdChange} />
+                </div>
+                <div>
+                    <div >
+                        <input type="checkbox"  id="customCheck1" required/>
+                        <label  htmlFor="customCheck1">GDPR Ok?</label>
+                    </div>
+                </div>
+
+                <button type="submit" >Registrera dig</button>
+                <p>
+                    Already registered <a href="/login">sign in?</a>
+                </p>
+            </form>
+        </section>
     );
 }
 export default SignUp;

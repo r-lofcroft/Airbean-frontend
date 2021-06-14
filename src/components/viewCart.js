@@ -19,6 +19,36 @@ function ViewCart(){
     console.log(value);
     dispatch(decrement(value));
   };
+  function takeMyMoney(value) {
+    let keys = []
+    for(let i=0; i<value.length;i++){
+      keys.push("title")
+    }
+    let map = new Map();
+    for(var i = 0; i < keys.length; i++){ 
+      map.set(keys[i], value[i]); 
+    } 
+    console.log(keys)
+    console.log(value);
+    let output = value.map(function(obj, index){
+      let myobj = {};
+      myobj[keys[index]]=obj;
+      return myobj
+    });
+    console.log(output) 
+    // fetch('http://localhost:8001/api/order', {
+    //   body: JSON.stringify(output),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   method: 'POST'
+    // })
+    // .then(response => response.json())
+    // .then(result => {
+    //   console.log(result)
+    // })
+    
+  };
 
   const convert = (counter) => {
     const res = {};
@@ -36,43 +66,41 @@ function ViewCart(){
 
   let convertedCounterInt = convertedCounter.map((counter, index)=>{
     return(
-      <tr key={index}>
-        <td >{counter.count}</td>
-      </tr>
+      <p key={index}>{counter.count}</p>    
     )
   })
 
   let uniqueCounterProduct = uniqueCounter.map((uniqueTitle, index)=>{
     return(
-      <tr key={index}>
-                <td><button onClick={()=>removeItemFromCart(uniqueTitle)}>-</button></td>
-
-       <td >{uniqueTitle.title}</td>
-       <td><button onClick={()=>addItemToCart(uniqueTitle)}>+</button></td>
-
-      </tr>
+      <div key ={index}>
+        <button onClick={()=>removeItemFromCart(uniqueTitle)}>-</button>
+        <p >{uniqueTitle.title}</p>
+        <button onClick={()=>addItemToCart(uniqueTitle)}>+</button>
+      </div>
     )
   }) 
 
   console.log(uniqueCounter)
-  console.log(useSelector(state=>{return (state.cartArr)}))
+  console.log(counter)
+  let counterTitles = counter.map((counterTitle)=>{
+    return(
+      counterTitle.title
+    )
+  })
+  console.log(counterTitles)
   return (
     <section>
       <header> 
         Cart: {counter.length}
       </header>
-      <table>
-        <tbody>
-          <tr>
-            <th>Product</th>
-            <th>Amount</th>
-          </tr>
-          <tr>
-              <td>{uniqueCounterProduct}</td>
-              <td>{convertedCounterInt}</td>
-          </tr>
-        </tbody>
-      </table>
+        {uniqueCounterProduct}
+      <div>
+        {convertedCounterInt}
+      </div>
+        
+      <button onClick={()=>takeMyMoney(counterTitles)}>
+        Take my money!
+      </button>
     </section>
   )}
 
