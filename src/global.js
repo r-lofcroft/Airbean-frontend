@@ -41,12 +41,32 @@ export const GlobalStyles = createGlobalStyle`
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
-  #purchase{
+  .mainButton{
     background: ${({ theme }) => theme.primaryDark};
     color: ${({ theme }) => theme.primaryLight};
     border: none;
     padding: 15px 32px;
     font-size: 16px;
     border-radius: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
+  img {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+    width: 1.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+  input[type=text], [type=email], [type=password] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin: 1rem 0;
+    box-sizing: border-box;
+    border-radius: 0.3rem;
+    border: 0.1rem solid black;
+  }
+
   `

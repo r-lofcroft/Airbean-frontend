@@ -97,7 +97,7 @@ const Products = ({ open }) => {
           <p>Total: {sum}</p>
           <p>Inkl moms + drönarleverans</p>
         </div>
-       <button id="purchase" onClick={()=>takeMyMoney(counterTitles)}>
+       <button className="mainButton    " onClick={()=>takeMyMoney(counterTitles)}>
           Take my money!
        </button>
        </StyledProducts>

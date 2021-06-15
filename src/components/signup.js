@@ -41,17 +41,17 @@ function SignUp() {
             <form onSubmit={handleSubmit} id="sign-up-form">
 
                 <div>
-                    <label htmlFor="name">Namn</label>
+                    <label htmlFor="name">Namn</label> <br></br>
                     <input type="text" placeholder="Förnamn Efternamn" value={name} onChange={handleNameChange} />
                 </div>
 
                 <div>
-                    <label htmlFor="email">Epost</label>
+                    <label htmlFor="email">Epost</label><br></br>
                     <input type="email" placeholder="Epost" value={email} onChange={handleEmailChange}/>
                 </div>
 
                 <div>
-                    <label  htmlFor="password">Lösenord</label>
+                    <label  htmlFor="password">Lösenord</label><br></br>
                     <input type="password" placeholder="Lösenord" value={pwd} onChange={handlePwdChange} />
                 </div>
                 <div>
@@ -61,7 +61,7 @@ function SignUp() {
                     </div>
                 </div>
 
-                <button type="submit" >Registrera dig</button>
+                <button type="submit" className="mainButton">Registrera dig</button>
                 <p>
                     Already registered <a href="/login">sign in?</a>
                 </p>
