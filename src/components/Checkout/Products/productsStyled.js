@@ -4,15 +4,17 @@ export const StyledProducts = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: ${({ theme }) => theme.primaryLight};
-  height: 100vh;
+  background: #ffffff;
+  border-radius: 1rem;
+  height: 80vh;
   text-align: left;
   padding: 2rem;
   position: absolute;
+  margin: auto;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
-  transform:  ${({ open }) => open ? 'translateX(0)' : 'translateY(-100%)'};
+  transform:  ${({ open }) => open ? 'translateY(15%)' : 'translateY(-101%)'};
   overflow: hidden;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {

@@ -10,11 +10,11 @@ export const StyledCart = styled.button`
   height: 2rem;
   border: none;
   border-radius: 1em;
-  background: #f3e4e1;
+  background: ${({ theme }) => theme.primaryDark};
   cursor: pointer;
   padding: 0;
   z-index: 10;
-
+  
   &:focus {
     outline: none;
   }

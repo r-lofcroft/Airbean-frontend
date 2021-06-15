@@ -56,10 +56,9 @@ function Menu() {
           <tbody>     
               {menu.map((titleItem, index)=>(
                 <tr key={index}>
-                  <td><button onClick={()=>addItemToCart(titleItem)} key={titleItem.id}>+</button></td>
-                  <td>{titleItem.title}</td>
-                  <td>{titleItem.desc}</td>
-                  <td>{titleItem.price}</td>
+                  <td><button onClick={()=>addItemToCart(titleItem)} key={titleItem.id} className="button">+</button></td>
+                  <td colSpan="2">{titleItem.title}<br></br>{titleItem.desc}</td>
+                  <td>{titleItem.price} kr</td>
                 </tr>
               ))}
           </tbody>

@@ -14,11 +14,9 @@ const Products = ({ open }) => {
   const dispatch = useDispatch();
 
   function addItemToCart(value) {
-    console.log(value);
     dispatch(addToCart(value));
   };
   function removeItemFromCart(value) {
-    console.log(value);
     dispatch(decrement(value));
   };
   function takeMyMoney(value) {
@@ -30,15 +28,12 @@ const Products = ({ open }) => {
     for(var i = 0; i < keys.length; i++){ 
       map.set(keys[i], value[i]); 
     } 
-    console.log(keys)
-    console.log(value);
     let output = value.map(function(obj, index){
       let myobj = {};
       myobj[keys[index]]=obj;
       return myobj
     });
     const obj = Object.assign({}, output);
-    console.log(JSON.stringify(obj)) 
     fetch('http://localhost:8001/api/order', {
       body: JSON.stringify(obj),
       headers: {
@@ -48,7 +43,6 @@ const Products = ({ open }) => {
     })
     .then(response => response.json())
     .then(result => {
-      console.log(result)
     })
     
   };
@@ -64,7 +58,6 @@ const Products = ({ open }) => {
     });
   return Object.values(res);
   };
-  console.log(convert(counter));
   let convertedCounter = convert(counter)
 
   let convertedCounterInt = convertedCounter.map((counter, index)=>{
@@ -75,32 +68,35 @@ const Products = ({ open }) => {
 
   let uniqueCounterProduct = uniqueCounter.map((uniqueTitle, index)=>{
     return(
-      <div key ={index}>
-        <button onClick={()=>removeItemFromCart(uniqueTitle)}>-</button>
-        <p >{uniqueTitle.title}</p>
-        <button onClick={()=>addItemToCart(uniqueTitle)}>+</button>
-      </div>
+      <ul key ={index}>
+        <i className="arrow up" onClick={()=>addItemToCart(uniqueTitle)}></i>
+        <li >{uniqueTitle.title}</li>
+        <li >{uniqueTitle.price} kr</li>
+        <i className="arrow down" onClick={()=>removeItemFromCart(uniqueTitle)}></i>
+      </ul>
     )
   }) 
 
-  console.log(uniqueCounter)
-  console.log(counter)
   let counterTitles = counter.map((counterTitle)=>{
     return(
       counterTitle.title
     )
   })
-  console.log(counterTitles)
+  var sum = 0;
+  for (var i = 0; i < counter.length; i++) {
+    sum += counter[i].price
+  }
   return (
     <StyledProducts open={open}>
         <header> 
-          Cart: {counter.length}
+          <h1>Din beställning</h1>
         </header>
-        <div id="cartContainer">
-          <p id="cartProduct">{uniqueCounterProduct}</p>
-          <p id="cartInt">{convertedCounterInt}</p>
-       </div>
-        
+          {uniqueCounterProduct}
+          {convertedCounterInt}
+        <div>
+          <p>Total: {sum}</p>
+          <p>Inkl moms + drönarleverans</p>
+        </div>
        <button id="purchase" onClick={()=>takeMyMoney(counterTitles)}>
           Take my money!
        </button>
