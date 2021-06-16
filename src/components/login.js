@@ -34,19 +34,19 @@ function Login(){
      };
     return (
         <form onSubmit={handleSubmit}>
-            <h3>Sign In</h3>
+            <h3>Logga in</h3>
 
             <div>
-                <label htmlFor="email">Email address</label>
-                <input type="email" placeholder="Enter email" value={email} onChange={handleEmailChange}/>
+                <label htmlFor="email">Epost</label>
+                <input type="email" placeholder="Epost" value={email} onChange={handleEmailChange}/>
             </div>
 
             <div>
-                <label  htmlFor="password">Password</label>
-                <input type="password" placeholder="Enter Password" value={pwd} onChange={handlePwdChange} />
+                <label  htmlFor="password">Lösenord</label>
+                <input type="password" placeholder="Lösenord" value={pwd} onChange={handlePwdChange} />
             </div>
 
-            <button type="submit" >Submit</button>
+            <button type="submit" className="mainButton" >Submit</button>
         </form>
     );
 }

@@ -20,8 +20,6 @@ function Menu() {
     
   };
 
-
-  
   const fetchMenu = async () => {
     try {
       let response = await fetch('http://localhost:8001/api/coffee');
