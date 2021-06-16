@@ -1,58 +1,60 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
+// import { useEffect, useState } from 'react';
 
-function Profile() {
-  const [id, setID] = useState();
-  const [orders, setOrder] = useState();
 
-  const getId = async () => {
-    try{
-      let response = await fetch('http://localhost:8001/api/account/')
-      let json = await response.json()
-      return {success: true, data: json };
-    } catch (error) {
-      console.log(error);
-      return { success: false };
-    }
-  } 
-  useEffect(() => {
-    (async () => {
-      let res = await getId();
-      if(res.success){
-        setID(res.data.activeAccount)
-      }
-    })();
-  }, [])
-   
-  const fetchOrder = async () => {
-    try{
-      let response = await fetch(`http://localhost:8001/api/order/${id}`);
-      let json = await response.json();
-      return {success: true, data: json}
-    } catch (error) {
-      console.log(error);
-      return { success: false };
+export default class Profile extends React.Component {
+  constructor(props){
+    super(props);
+    this.state= {
+      id: [],
+      orders: []
     }
   }
-  useEffect(() => { 
-    (async () => {
-      let orderData = await fetchOrder();
-      if (orderData.success){
-        setOrder(orderData.data)
-      }
-    })()
-    fetchOrder()
-  }, [id])
-  console.log(id)
-  console.log(orders)
-  return (
-    <section className="App">
- <h1>Profile</h1>
-        <div>
-        
-        </div>
+  componentDidMount() {
+    fetch('http://localhost:8001/api/account/')
+    .then(response => response.json())
+    .then(data => this.setState({ id: data.activeAccount}))
+    fetch(`http://localhost:8001/api/order/${this.state.id}`)
+    .then(response => response.json())
+    .then(data => this.setState({ orders: data}))
+  }
+  render(){
+    const { orders } = this.state.orders;
+    console.log(this.state)
+    return(
+      <ul>{orders.map(order =>
+        <li>{order.title}</li>
+        )}
+      </ul>
+    )
+  }
 
-    </section>
-  );
 }
+// function Profile(){
+//   const [id, setID] = useState();
+//   const [orders, setOrder] = useState();
 
-export default Profile;
+//   useEffect(() => {
+//     // GET request using fetch inside useEffect React hook
+//        fetch(`http://localhost:8001/api/account/`)
+//         .then(response => response.json())
+//         .then(data => setID(data.activeAccount));
+  
+//        fetch(`http://localhost:8001/api/order/${id}`)
+//         .then(response => response.json())
+//         .then(data => setOrder(data));
+  
+//   }, [id]);
+  
+//   console.log(orders)
+//   return (
+//     <section className="App">
+//       <h1>Profile</h1>
+//         <div>
+//           <p>{id}</p>
+//         </div>
+//     </section>
+//   );
+// }
+
+// // export default Profile;
