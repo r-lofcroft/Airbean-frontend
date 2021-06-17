@@ -17,6 +17,7 @@ export const StyledProducts = styled.nav`
   transform:  ${({ open }) => open ? 'translateY(15%)' : 'translateY(-101%)'};
   overflow: hidden;
 
+
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
   }

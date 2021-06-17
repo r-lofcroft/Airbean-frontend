@@ -43,27 +43,31 @@ function Menu() {
     })();
   }, []);
   return (
-    <section className="App">
-      <header className="header">
-        <ViewCart open={open} setOpen={setOpen}/>
-        <Products open={open} setOpen={setOpen}/>
-      </header>
-      <h1>Meny</h1>
-      {menuLoaded ? (
-        <table className="menuTable">
-          <tbody>     
-              {menu.map((titleItem, index)=>(
-                <tr key={index}>
-                  <td><button onClick={()=>addItemToCart(titleItem)} key={titleItem.id} className="button">+</button></td>
-                  <td colSpan="2">{titleItem.title}<br></br>{titleItem.desc}</td>
-                  <td>{titleItem.price} kr</td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>The menu was not available, please try again later.</p>
-      )}
+    <section >
+      <img className="banner" src="Banner.png" alt="banner"></img>
+      <div className="menu">
+        <header className="header">
+          <ViewCart open={open} setOpen={setOpen}/>
+          <Products open={open} setOpen={setOpen}/>
+        </header>
+        <h1>Meny</h1>
+        {menuLoaded ? (
+          <table className="menuTable">
+            <tbody>     
+                {menu.map((titleItem, index)=>(
+                  <tr key={index}>
+                    <td><button onClick={()=>addItemToCart(titleItem)} key={titleItem.id} className="button">+</button></td>
+                    <td colSpan="2">{titleItem.title}<br></br>{titleItem.desc}</td>
+                    <td>{titleItem.price} kr</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        ) : (
+          <p>The menu was not available, please try again later.</p>
+        )}
+      </div>
+      <img className="footBanner" src="Banner.png" alt="banner"></img>
     </section>
   );
 }

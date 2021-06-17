@@ -33,14 +33,17 @@ function SignUp() {
                 console.log(result)
             })
     };
-    
+    document.body.style.backgroundColor ="#2F2926"
+
     return (
-        <section className="form-container">
+        <section >
+            <img className="banner" src="Banner.png" alt="banner"></img>
+            <div className="signup">
             <div>
                 <h1>Välkommen till AirBean-familjen!</h1>
                 <p>Genom att skapa ett konto nedan kan du spara och se din orderhistorik.</p>
             </div>
-            <form onSubmit={handleSubmit} id="sign-up-form">
+            <form onSubmit={handleSubmit} className="">
 
                 <div>
                     <label htmlFor="name">Namn</label> <br></br>
@@ -68,6 +71,7 @@ function SignUp() {
                     Already registered <a href="/login">sign in?</a>
                 </p>
             </form>
+            </div>
         </section>
     );
 }

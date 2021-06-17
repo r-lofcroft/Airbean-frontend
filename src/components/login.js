@@ -33,21 +33,24 @@ function Login(){
         })
      };
     return (
-        <form onSubmit={handleSubmit}>
-            <h3>Logga in</h3>
+        <section>
+            <img className="banner" src="Banner.png" alt="banner"></img>
+            <form onSubmit={handleSubmit} className="login">
+                <h3>Logga in</h3>
 
-            <div>
-                <label htmlFor="email">Epost</label>
-                <input type="email" placeholder="Epost" value={email} onChange={handleEmailChange}/>
-            </div>
+                <div>
+                    <label htmlFor="email">Epost</label>
+                    <input type="email" placeholder="Epost" value={email} onChange={handleEmailChange}/>
+                </div>
 
-            <div>
-                <label  htmlFor="password">Lösenord</label>
-                <input type="password" placeholder="Lösenord" value={pwd} onChange={handlePwdChange} />
-            </div>
+                <div>
+                    <label  htmlFor="password">Lösenord</label>
+                    <input type="password" placeholder="Lösenord" value={pwd} onChange={handlePwdChange} />
+                </div>
 
-            <a href="/menu/"><button type="submit" className="mainButton">Submit</button></a>
-        </form>
+                <a href="/menu/"><button type="submit" className="mainButton">Submit</button></a>
+            </form>
+        </section>
     );
 }
 export default Login;

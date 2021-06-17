@@ -36,7 +36,7 @@ export const StyledNav = styled.nav`
     }
 
     &:hover {
-      color: ${({ theme }) => theme.primaryHover};
+      color: ${({ theme }) => theme.primaryLight};
     }
   }
 `;

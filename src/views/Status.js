@@ -17,14 +17,15 @@ function Status() {
 
   let arr = orders && orders[orders.length -1]
   console.log(arr)
-
+  document.body.style.backgroundColor ="#E5674E"
+  document.body.style.color = " #F3E4E1"
    return (
-    <section className="Profile">
+    <section className="status">
         <div id="orderContainer">
           <p>{arr && arr.orderID}</p>
           <h1>Din beställning är på väg!</h1>
           <p>{arr && arr.eta}</p>
-          <a href='/menu'><button className="mainButton">Ok, cool!</button></a>
+          <a href='/menu'><button className="subButton">Ok, cool!</button></a>
         </div>
     </section>
   );

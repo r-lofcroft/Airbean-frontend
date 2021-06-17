@@ -1,4 +1,3 @@
-import './App.css';
 import {useState} from 'react'
 import About from './views/About'; 
 import { Switch, Route } from 'react-router-dom';
