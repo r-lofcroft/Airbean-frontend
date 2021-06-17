@@ -68,5 +68,32 @@ export const GlobalStyles = createGlobalStyle`
     border-radius: 0.3rem;
     border: 0.1rem solid black;
   }
-
+  #orderContainer{
+    display: flex
+    justify-content: space-between;
+  }
+  #orderHistory{
+    font-size: small;
+    flex-grow: 4;
+    flex-basis: auto;
+    border-bottom: 1px dotted black;
+  }
+  #avatar{
+    width: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-radius: 50%
+    
+  }
+  .about{
+    margin-top: 5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .orderStatus{
+    background: #E5674E;
+    max-width: 100vw;
+    max-height: 100vh;
+  }
   `

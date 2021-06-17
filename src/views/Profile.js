@@ -1,60 +1,42 @@
-import React from 'react';
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
+function Profile(){
+  const [id, setID] = useState(); 
+  const [orders, setOrder] = useState();
+  const [accounts, setAccount] = useState();
 
-export default class Profile extends React.Component {
-  constructor(props){
-    super(props);
-    this.state= {
-      id: [],
-      orders: []
-    }
-  }
-  componentDidMount() {
-    fetch('http://localhost:8001/api/account/')
-    .then(response => response.json())
-    .then(data => this.setState({ id: data.activeAccount}))
-    fetch(`http://localhost:8001/api/order/${this.state.id}`)
-    .then(response => response.json())
-    .then(data => this.setState({ orders: data}))
-  }
-  render(){
-    const { orders } = this.state.orders;
-    console.log(this.state)
-    return(
-      <ul>{orders.map(order =>
-        <li>{order.title}</li>
-        )}
-      </ul>
-    )
-  }
+  useEffect(() => {
+    // GET request using fetch inside useEffect React hook
+       fetch(`http://localhost:8001/api/account/`)
+        .then(response => response.json())
+        .then(data => setID(data.activeAccount));
+  
+       fetch(`http://localhost:8001/api/order/${id}`)
+        .then(response => response.json())
+        .then(data => setOrder(data));
 
+      fetch(`http://localhost:8001/api/account/`)
+        .then(response => response.json())
+        .then(data => setAccount(data))
+  }, [id]);
+  let username = accounts && accounts.accounts.find(x=>x.id===id).username
+  let email = accounts && accounts.accounts.find(x=>x.id===id).email
+
+  return (
+    <section className="Profile">
+      <div id="avatarContainer">
+        <img id="avatar" src="avatar.png" alt="avatar"></img>
+        <h1>{username}</h1>
+        <p>{email}</p>
+      </div>
+      <h2>Orderhistorik</h2>
+        <div id="orderContainer">
+            { orders && orders.map((order) => {
+              return <p id="orderHistory" task={ order.title } key={ order.orderID } >OrderID: {order.orderID} {order.date}</p>})}
+          
+        </div>
+    </section>
+  );
 }
-// function Profile(){
-//   const [id, setID] = useState();
-//   const [orders, setOrder] = useState();
 
-//   useEffect(() => {
-//     // GET request using fetch inside useEffect React hook
-//        fetch(`http://localhost:8001/api/account/`)
-//         .then(response => response.json())
-//         .then(data => setID(data.activeAccount));
-  
-//        fetch(`http://localhost:8001/api/order/${id}`)
-//         .then(response => response.json())
-//         .then(data => setOrder(data));
-  
-//   }, [id]);
-  
-//   console.log(orders)
-//   return (
-//     <section className="App">
-//       <h1>Profile</h1>
-//         <div>
-//           <p>{id}</p>
-//         </div>
-//     </section>
-//   );
-// }
-
-// // export default Profile;
+export default Profile;

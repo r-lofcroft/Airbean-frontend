@@ -46,7 +46,7 @@ function Login(){
                 <input type="password" placeholder="Lösenord" value={pwd} onChange={handlePwdChange} />
             </div>
 
-            <button type="submit" className="mainButton" >Submit</button>
+            <a href="/menu/"><button type="submit" className="mainButton">Submit</button></a>
         </form>
     );
 }

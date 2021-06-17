@@ -2,7 +2,7 @@
 function About() {
 
   return (
-    <section className="App">
+    <section className="about">
       <h1>Vårt Kaffe</h1>
       <strong>Pumpkin spice mug, barista cup, sit macchiato, kopi-luwak, doppio, grounds dripper, crema, strong whipped, variety extra iced id lungo half and half mazagran. Pumpkin spice.</strong>
 

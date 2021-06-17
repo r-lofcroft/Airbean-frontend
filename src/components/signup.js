@@ -1,4 +1,6 @@
 import {useState} from 'react';
+
+
 function SignUp() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -14,6 +16,7 @@ function SignUp() {
         setPwd(event.target.value);
     };
     const handleSubmit = event =>{
+        event.preventDefault()
         console.log(`Your state values:
                     name: ${name}
                     email: ${email}
@@ -28,7 +31,6 @@ function SignUp() {
             .then(response => response.json())
             .then(result => {
                 console.log(result)
-                alert('Congratulations, your account has been made!')
             })
     };
     
@@ -61,7 +63,7 @@ function SignUp() {
                     </div>
                 </div>
 
-                <button type="submit" className="mainButton">Registrera dig</button>
+                <a href="/menu/"><button type="submit" className="mainButton">Registrera dig</button></a>
                 <p>
                     Already registered <a href="/login">sign in?</a>
                 </p>

@@ -43,6 +43,7 @@ const Products = ({ open }) => {
     })
     .then(response => response.json())
     .then(result => {
+      console.log(result)
     })
     
   };
@@ -97,9 +98,9 @@ const Products = ({ open }) => {
           <p>Total: {sum}</p>
           <p>Inkl moms + drönarleverans</p>
         </div>
-       <button className="mainButton    " onClick={()=>takeMyMoney(counterTitles)}>
+       <a href="/status/"><button className="mainButton" onClick={()=>takeMyMoney(counterTitles)}>
           Take my money!
-       </button>
+       </button></a>
        </StyledProducts>
   )
 };
