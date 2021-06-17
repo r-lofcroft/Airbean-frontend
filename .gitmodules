@@ -1,0 +1,3 @@
+[submodule "airbeanAPI"]
+	path = airbeanAPI
+	url = https://github.com/r-lofcroft/Airbean-server.git
