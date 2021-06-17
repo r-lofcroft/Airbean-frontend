@@ -105,10 +105,7 @@ export const GlobalStyles = createGlobalStyle`
     border-radius: 0.3rem;
     border: 0.1rem solid black;
   }
-  #orderContainer{
-    display: flex
-    justify-content: space-between;
-  }
+
   #orderHistory{
     font-size: small;
     flex-grow: 4;
@@ -165,10 +162,7 @@ export const GlobalStyles = createGlobalStyle`
   .status{
     text-align: center;
   }
-  #orderContainer{
-    justify-self: center;
-    text-align:center;
-  }
+ 
   .uniqueProducts{
     grid-column-start: 1;
     grid-column-end: 2;

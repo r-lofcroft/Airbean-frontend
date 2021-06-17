@@ -64,7 +64,7 @@ const Products = ({ open }) => {
   let convertedCounterInt = convertedCounter.map((counter, index)=>{
     return(
       <div key={index} className="uniqueName">
-        <p >{counter.count}</p>  
+        <p >{counter.count}<br></br></p>  
       </div>  
     )
   })
