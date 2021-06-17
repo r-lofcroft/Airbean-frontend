@@ -21,8 +21,9 @@ function Status() {
   document.body.style.color = " #F3E4E1"
    return (
     <section className="status">
-        <div id="orderContainer">
-          <p>{arr && arr.orderID}</p>
+        <div>
+          <p>OrderID: <em>{arr && arr.orderID}</em></p>
+          <img id="drone" src="cupDrone.png" alt="drone"></img>
           <h1>Din beställning är på väg!</h1>
           <p>{arr && arr.eta}</p>
           <a href='/menu'><button className="subButton">Ok, cool!</button></a>

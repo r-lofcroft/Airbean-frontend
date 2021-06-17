@@ -31,11 +31,10 @@ function Profile(){
         <h1>{username}</h1>
         <p>{email}</p>
       </div>
-      <h2>Orderhistorik</h2>
         <div id="orderContainer">
+      <h2>Orderhistorik</h2>
             { orders && orders.map((order) => {
               return <p id="orderHistory" task={ order.title } key={ order.orderID } >{order.orderID} {order.date}</p>})}
-          
         </div>
     </section>
   );

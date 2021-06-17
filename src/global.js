@@ -64,7 +64,6 @@ export const GlobalStyles = createGlobalStyle`
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
-    z-index: -1;
 
 }
   .mainButton{
@@ -88,6 +87,7 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 9rem;
   }
   .bag {
     -webkit-filter: invert(1);
@@ -117,7 +117,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   #avatar{
     display: block;
-    width: 8rem;
+    width: 5rem;
     margin-left: auto;
     margin-right: auto;
     background-color: #E5674E;
@@ -136,11 +136,7 @@ export const GlobalStyles = createGlobalStyle`
     padding-top: 18rem;
     padding-bottom: 5rem;
   }
-  .orderStatus{
-    background: #E5674E;
-    max-width: 100vw;
-    max-height: 100vh;
-  }
+
   .founderImg{
     display: block;
     width: 5rem;
@@ -152,6 +148,36 @@ export const GlobalStyles = createGlobalStyle`
   }
   .founder{
     text-align: center;
-    
+  }
+  #avatarContainer{
+    text-align: center;
+  }
+  #orderContainer{
+    margin-top: 5rem;
+    display: flex;
+    flex-flow: column;
+    align-items: baseline;
+  }
+  .menu{
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .status{
+    text-align: center;
+  }
+  #orderContainer{
+    justify-self: center;
+    text-align:center;
+  }
+  .uniqueProducts{
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .uniqueName{
+    grid-column-start: 4;
+    grid-column-end: 4;
+  }
+  .gridContainer{
+    display: grid;
   }
   `

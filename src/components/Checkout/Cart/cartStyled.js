@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const StyledCart = styled.button`
-  position: absolute;
+  position: fixed;
   top: 5%;
   left: 20rem;
   display: flex;

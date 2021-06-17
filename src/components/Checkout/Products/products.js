@@ -63,18 +63,18 @@ const Products = ({ open }) => {
 
   let convertedCounterInt = convertedCounter.map((counter, index)=>{
     return(
-      <p key={index}>{counter.count}</p>    
+      <div key={index} className="uniqueName">
+        <p >{counter.count}</p>  
+      </div>  
     )
   })
 
   let uniqueCounterProduct = uniqueCounter.map((uniqueTitle, index)=>{
     return(
-      <ul key ={index}>
-        <i className="arrow up" onClick={()=>addItemToCart(uniqueTitle)}></i>
-        <li >{uniqueTitle.title}</li>
-        <li >{uniqueTitle.price} kr</li>
-        <i className="arrow down" onClick={()=>removeItemFromCart(uniqueTitle)}></i>
-      </ul>
+      <div key ={index} className="uniqueProducts">
+        <p>{uniqueTitle.title} <i className="arrow up" onClick={()=>addItemToCart(uniqueTitle)}></i><br></br>{uniqueTitle.price} kr<i className="arrow down" onClick={()=>removeItemFromCart(uniqueTitle)}></i></p>
+        
+      </div>
     )
   }) 
 
@@ -92,8 +92,10 @@ const Products = ({ open }) => {
         <header> 
           <h1>Din beställning</h1>
         </header>
+        <div className="gridContainer">
           {uniqueCounterProduct}
           {convertedCounterInt}
+        </div>
         <div>
           <p>Total: {sum}</p>
           <p>Inkl moms + drönarleverans</p>
